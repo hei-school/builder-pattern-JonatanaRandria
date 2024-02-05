@@ -1,16 +1,21 @@
 package org.example.Builder;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.example.Class.Builder;
+import org.example.Class.Car;
+import org.example.Class.Engine;
 
 
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode(callSuper = false)
 public class CarBuilder extends Builder {
 
+    private Car car;
 
     @Override
     public String toString() {
@@ -33,4 +38,29 @@ public class CarBuilder extends Builder {
     public CarBuilder getResult(){
         return this;
     }
+
+    @Override
+    public void setEngine(Engine engine) {
+
+        super.setEngine(engine);
+    }
+
+    @Override
+    public void setSeats(int seats) {
+
+        super.setSeats(seats);
+    }
+
+    @Override
+    public void setTripComputer(boolean tripComputer) {
+
+        super.setTripComputer(tripComputer);
+    }
+
+    @Override
+    public void setGPS(boolean GPS) {
+
+        super.setGPS(GPS);
+    }
+
 }

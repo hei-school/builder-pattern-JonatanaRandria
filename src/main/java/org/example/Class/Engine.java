@@ -1,7 +1,9 @@
 package org.example.Class;
 
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+@EqualsAndHashCode
 public class Engine {
     private String type;
 

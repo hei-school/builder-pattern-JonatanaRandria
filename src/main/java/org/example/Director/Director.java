@@ -2,10 +2,15 @@ package org.example.Director;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.example.Builder.CarBuilder;
 import org.example.Class.Builder;
+import org.example.Class.Car;
 import org.example.Class.Engine;
 
+
+@EqualsAndHashCode
 
 public class Director {
 
@@ -15,7 +20,7 @@ public class Director {
             builder.setEngine(new Engine("V8"));
             builder.setTripComputer(true);
             builder.setGPS(true);
-            return builder;
+            return  builder;
         }
 
         public Builder makeSportsCar(Builder builder) {

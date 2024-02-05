@@ -1,6 +1,7 @@
 package unit.utils;
 
 import org.example.Builder.CarBuilder;
+import org.example.Builder.CarManualBuilder;
 import org.example.Class.Builder;
 import org.example.Class.Car;
 import org.example.Class.Engine;
@@ -8,6 +9,7 @@ import org.example.Director.Director;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DirectorTest {
@@ -16,7 +18,7 @@ public class DirectorTest {
         Director director = new Director();
         CarBuilder carBuilder = new CarBuilder();
         director.makeSUV(carBuilder);
-        Car car = carBuilder.getResult();
+        CarBuilder car = carBuilder.getResult();
 
         assertTrue(true);
         assertEquals(car.toString(), carBuilder.getResult().toString());
@@ -31,13 +33,13 @@ public class DirectorTest {
         Director director = new Director();
         CarManualBuilder carManualBuilder = new CarManualBuilder();
         director.makeSportsCar(carManualBuilder);
-        Manual manual = carManualBuilder.getResult();
+        CarManualBuilder manual = carManualBuilder.getResult();
 
-        assertTrue(carManualBuilder instanceof BuilderInterface);
+        assertTrue(carManualBuilder instanceof Builder);
         assertEquals(manual.toString(), carManualBuilder.getResult().toString());
         assertEquals(2, manual.getSeats());
-        assertEquals(new Engine("V10", 2000), manual.getEngine());
-        assertEquals(new TripComputer(20, 20, 0, 300, 0, 0), manual.getTripComputer());
-        assertEquals(new GPS("None", 0), manual.getGPS());
+        assertEquals(new Engine("V12"), manual.getEngine());
+        assertFalse(manual.isTripComputer());
+        assertTrue(manual.isGPS());
     }
 }
