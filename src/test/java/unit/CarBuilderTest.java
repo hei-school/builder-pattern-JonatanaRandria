@@ -29,4 +29,37 @@ public class CarBuilderTest {
         assertEquals(0, carBuilder.getSeats());
         assertFalse(carBuilder.isGPS());
     }
+
+    @Test
+    public void testCarManualBuilderSetSeats() {
+        CarManualBuilder carBuilder = new  CarManualBuilder();
+        assertEquals(0, carBuilder.getSeats());
+
+        carBuilder.setSeats(4);
+        assertEquals(4, carBuilder.getSeats());
+    }
+
+    @Test
+    public void testCarBuilderSetGPS() {
+        CarManualBuilder carBuilder = new CarManualBuilder();
+        assertFalse(carBuilder.isGPS());
+
+        carBuilder.setGPS(true);
+        assertTrue(carBuilder.isGPS());
+    }
+
+    @Test
+    public void testBuilderSetMultipleEngines() {
+        CarManualBuilder builder = new CarManualBuilder() ;
+        assertNull(builder.getEngine());
+
+        Engine firstEngine = new Engine("Diesel");
+        Engine secondEngine = new Engine("Electric");
+
+        builder.setEngine(firstEngine);
+        builder.setEngine(secondEngine);
+
+        // The builder should keep only the last set engine
+        assertEquals(secondEngine, builder.getEngine());
+    }
 }

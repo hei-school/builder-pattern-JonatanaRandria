@@ -17,7 +17,11 @@ public class Builder {
     private Engine engine;
 
     public Builder reset() {
-        engine = null;  // Reset all variables to default values
+        engine = null;
+        seats= 0;
+        tripComputer = false;
+        GPS = false;
+        // Reset all variables to default values
         return this;
     }
 
